@@ -6,10 +6,10 @@
 #include <windows.h>
 
 using namespace std;
-#define Fast ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);//to save time
+#define Fast ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 typedef long double ld;
-typedef long long int ll;//allocate large memory space
+typedef long long int ll;
 
 /* Functions */
 bool Digit(char C);
@@ -157,24 +157,24 @@ void postFix()
 
 void inFix()
 {
-    stack<char> st;//create a charecter stack st
+    stack<char> st;
     string ns;
 
     printf("\nEnter The inFix Equation: ");
-    cin.ignore();//to ignore one and more charecter from input buffer
-    getline(cin,s);//read unformatted string
+    cin.ignore();
+    getline(cin,s);
 
-    st.push('N');//insert an element on the top of the stack
-    int l=s.length();//return the length of stack container
+    st.push('N');
+    int l=s.length();
     for(int i=0; i<l; i++)
     {
-        if(Digit(s[i]))//0 to 9 hole
-            ns+=s[i];//string +1 hobe
+        if(Digit(s[i]))
+            ns+=s[i];
 
-        else if (s[i]==' ')//string break hole next e jabe mane +1 hobe
+        else if (s[i]==' ')
             ns+=' ';
 
-        else if(s[i]=='(')//( hole stack e push korbe
+        else if(s[i]=='(')
             st.push('(');
 
         else if(s[i]==')')
@@ -182,24 +182,24 @@ void inFix()
             while(st.top()!='N' && st.top()!='(')
             {
                 ns+=st.top();
-                st.pop();//pop hobe jothokhon na ( pabe
+                st.pop();
             }
-            if(st.top()=='(')//( pale pop hobe
+            if(st.top()=='(')
                 st.pop();
         }
         else
         {
-            while(st.top()!='N' && prec(s[i])<=prec(st.top()))//incomming operation er preccedence jodi stack er top theke kom hy tyle
+            while(st.top()!='N' && prec(s[i])<=prec(st.top()))
             {
-                ns+=st.top();//incomming operation top hobe
-                st.pop();//pop and print the top
+                ns+=st.top();
+                st.pop();
             }
-            st.push(s[i]);//beshi hole push korbo stack e
+            st.push(s[i]);
         }
     }
     while(st.top()!='N')
     {
-        ns+=st.top();//end of the expression pop all elements
+        ns+=st.top();
         st.pop();
     }
     postFixOpp(ns);
@@ -209,7 +209,6 @@ void inFix()
 
 int main()
 {
-    //system("Color 70");
     int choice,j=1;
     for (int i=1; i<=j; i++)
     {
